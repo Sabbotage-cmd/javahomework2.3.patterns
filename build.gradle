@@ -1,10 +1,19 @@
 plugins {
     id 'java'
+    id 'io.qameta.allure' version '2.8.1'
 }
 
 group 'ru.netology'
 version '1.0-SNAPSHOT'
 
+allure {
+    autoconfigure = true
+    version = '2.13.8'
+
+    useJUnit5 {
+        version = '2.13.8'
+    }
+}
 sourceCompatibility = 1.8
 
 // кодировка файлов (если используете русский язык в файлах)
@@ -12,6 +21,7 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
 repositories {
+    jcenter()
     mavenCentral()
 }
 
@@ -20,6 +30,7 @@ dependencies {
     testImplementation 'com.codeborne:selenide:5.11.0'
     testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.30'
     implementation 'com.github.javafaker:javafaker:1.0.2'
+    testImplementation 'io.qameta.allure:allure-selenide:2.13.8'
 
 }
 
