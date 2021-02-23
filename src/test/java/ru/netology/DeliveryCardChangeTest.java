@@ -31,7 +31,8 @@ public class DeliveryCardChangeTest {
         String date1 = getDate(20);
 
         open("http://localhost:9999/");
-        $("[placeholder='Город']").setValue(getCityForCard());       $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
+        $("[placeholder='Город']").setValue(getCityForCard());
+        $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
         $("[name='name']").setValue(getNameForCard("ru"));
         $("[name='phone']").setValue(getPhoneForCard("ru"));
@@ -41,10 +42,8 @@ public class DeliveryCardChangeTest {
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date1);
         $("button.button").click();
-        $("[data-test-id=replan-notification]").shouldHave(text("У вас уже запланирована встреча на другую дат. Перепланировать?"));
+        $("[data-test-id=replan-notification]").shouldHave(text("У вас уже запланирована встреча на другую дату. Перепланировать?"));
         $("[data-test-id=replan-notification] button.button").click();
         $("[data-test-id=success-notification]").waitUntil(visible, 15000).shouldHave(text("Встреча успешно запланирована на " + date1));
-
-
     }
 }

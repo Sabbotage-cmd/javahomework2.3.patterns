@@ -31,6 +31,7 @@ dependencies {
     testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.30'
     implementation 'com.github.javafaker:javafaker:1.0.2'
     testImplementation 'io.qameta.allure:allure-selenide:2.13.8'
+    testImplementation group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
 
 }
 
